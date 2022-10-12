@@ -1527,6 +1527,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@legendapp/state@^0.19.6":
+  version "0.19.6"
+  resolved "https://registry.yarnpkg.com/@legendapp/state/-/state-0.19.6.tgz#95491092b3e48c0c3d4f7acb9fe428972fe7e35a"
+  integrity sha512-ahFWKvCPk0P9KzIfqICH3ECPC1JokshsC4k69DCFXQZAaekmJ/O54tvewHZv/21unGZMlRJEEvVPXorxPYVvag==
+
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
@@ -7364,6 +7369,11 @@ react-scripts@5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-useinterval@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-useinterval/-/react-useinterval-1.0.2.tgz#d9537b7e1a823422c70cb3dc226d07835ff15569"
+  integrity sha512-aC0ATWbm1HaQjp7ILQzn6qge0K70cAgVzIhdUtDXPo9ho7W84MJ7/KOJIKMoi1hFwMp8lQDMYuVUDDk/3mn6sw==
 
 react@^18.2.0:
   version "18.2.0"
