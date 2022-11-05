@@ -1,8 +1,10 @@
 import React, {useRef} from 'react';
-import './App.css';
+// import './App.css';
 import { observable } from '@legendapp/state';
-import { enableLegendStateReact, observer } from '@legendapp/state/react'
+import { enableLegendStateReact, Memo, observer, useObservable } from '@legendapp/state/react'
 import Card from './components/Card';
+import { configureObservablePersistence, persistObservable } from '@legendapp/state/persist';
+import { ObservablePersistLocalStorage } from '@legendapp/state/local-storage';
 
 enableLegendStateReact();
 
@@ -15,29 +17,37 @@ const state = observable({
   voteForC: 0
 })
 
+configureObservablePersistence({
+  // Use Local Storage on web
+  persistLocal: ObservablePersistLocalStorage
+});
+persistObservable(state.voteForC, {
+  local: 'voteC',
+})
+persistObservable(state.voteForM, {
+  local: 'voteM',
+})
+
 function App() {
   const renderCount = ++useRef(0).current;
 
-  const playersData = state.players.get();
 
-  observer(() => {
-    console.log(state.voteForM.get());
-    console.log(state.voteForC.get());
-  })
-  state.voteForM.onChange((messi) => console.log('Number of votes is', messi))
+  const playersData = state.players.get();
 
   const voteForMessi = () =>  state.voteForM.set(state.voteForM.get() + 1)
   const voteForRonaldo = () => state.voteForC.set(state.voteForC.get() + 1)
   const unVoteForMessi = () =>  state.voteForM.set(state.voteForM.get() - 1)
   const unVoteForRonaldo = () => state.voteForC.set(state.voteForC.get() - 1)
 
+
+
   return (
     <section className='App'>
       <h2>{renderCount}</h2>
       <h2 style={{ marginBottom: "20px"}}>Vote the Best Football player in the world</h2>
-      {/* <Memo> */}
-        <h1>Messi: {state.voteForM} - {state.voteForC}: Ronaldo</h1>
-      {/* </Memo> */}
+      <Memo>
+        {() => <h1>Messi: {state.voteForM} - {state.voteForC}: Ronaldo</h1>}
+      </Memo>
       <div className='card-container'>
         {
           playersData.map((player) => (

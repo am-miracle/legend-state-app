@@ -59,3 +59,26 @@ body {
 .button:hover{
   background-color: rgb(21, 57, 156);
 }
+.App {
+  text-align: center;
+  padding: 10px;
+  line-height: 2rem;
+}
+.card{
+  margin: 6px 0;
+}
+
+@media (min-width: 768px) {
+  .card-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    gap: 20px;
+  }
+  .card{
+    margin: 6px 0;
+    width: 30%;
+  }
+}
